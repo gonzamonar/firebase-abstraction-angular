@@ -13,12 +13,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), 
     provideClientHydration(), 
     provideFirebaseApp(() => initializeApp({
-        "apiKey": "AIzaSyCzNO4KrQoiZvrFOqv6daIiuYSD2VUe1Wc",
-        "authDomain": "abstraccion-firebase.firebaseapp.com",
-        "projectId": "abstraccion-firebase",
-        "storageBucket": "abstraccion-firebase.appspot.com",
-        "messagingSenderId": "270513918358",
-        "appId": "1:270513918358:web:eae0cad78532ef45b04db7"
+        "apiKey": "AIzaSyA3qjaXPmT2y-WHpltt-LzWOP_JhoE1yKE",
+        "authDomain": "ng-firebase-abstraction.firebaseapp.com",
+        "projectId": "ng-firebase-abstraction",
+        "storageBucket": "ng-firebase-abstraction.appspot.com",
+        "messagingSenderId": "188220616045",
+        "appId": "1:188220616045:web:94d4d95b5e19745ca9be64"
       })),
       provideAuth(() => getAuth()),
       provideFirestore(() => getFirestore()), provideAnimationsAsync()

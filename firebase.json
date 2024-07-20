@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/abstraccion-firebase/browser",
+    "public": "dist/ng-firebase-abstraction/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "abstraccion-firebase": {
+    "ng-firebase-abstraction": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/abstraccion-firebase",
+            "outputPath": "dist/ng-firebase-abstraction",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "abstraccion-firebase:build:production"
+              "buildTarget": "ng-firebase-abstraction:build:production"
             },
             "development": {
-              "buildTarget": "abstraccion-firebase:build:development"
+              "buildTarget": "ng-firebase-abstraction:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "abstraccion-firebase:build"
+            "buildTarget": "ng-firebase-abstraction:build"
           }
         },
         "test": {
