@@ -47,6 +47,23 @@ export class LoginService {
   <span class="comment">// En esta función podemos incluir un modal de confirmación antes de ejecutarla</span>
   <span class="comment">// o bien un mensaje de "Sesión cerrada" o una redirección después de ejecutarla.</span>
   logout(): void {
+    this.authService.logout()
+    .then(() => {
+      this.notifier.popUpNotification("¡Esperamos verte de nuevo pronto!");
+      this.router.navigateByUrl("auth/login");
+    });
+  }
+}
+`;
+
+code_loginServicePlus = `
+export class LoginService {
+  
+  constructor(public authService: AuthService) { }
+  
+  <span class="comment">// En este ejemplo hay un alert con SweetAlert para confirmar el cierre de sesión</span>
+  <span class="comment">// y un mensaje de confirmación y una redirección después de realizar la acción.</span>
+  logout(): void {
     Swal.fire({
       title: "¿Deseas cerrar sesión?",
       text: "",

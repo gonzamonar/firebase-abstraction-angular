@@ -15,7 +15,7 @@
     <div class="col-md-3 session-info">
       <p [style.margin]="0" *ngIf="session.isSessionActive()">{{ session.getCurrentUser() }}</p>
       <a *ngIf="!session.isSessionActive()" [routerLink]="['auth/login']"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-      <a *ngIf="!session.isSessionActive()" [routerLink]="['auth/register']"><button type="button" class="btn btn-primary">Sign-up</button></a>
+      <a *ngIf="!session.isSessionActive()" [routerLink]="['auth/register']"><button type="button" class="btn btn-primary">Registro</button></a>
       <a *ngIf="session.isSessionActive()" [routerLink]="['auth/logout']"><button type="button" class="btn btn-primary">Logout</button></a>
     </div>
 </header>
