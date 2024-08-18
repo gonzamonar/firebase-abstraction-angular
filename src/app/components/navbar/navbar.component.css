@@ -1,4 +1,12 @@
 
 header {
     padding: 0px 25px;
+    background-color: white;
+}
+
+.session-info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
 }

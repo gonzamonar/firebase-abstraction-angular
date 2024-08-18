@@ -1,4 +1,4 @@
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom fixed-top">
     <div class="col-md-3 mb-2 mb-md-0">
         <a [routerLink]="['/']" class="d-inline-flex link-body-emphasis text-decoration-none">
             <img src="../../../assets/google-firebase-icon.webp" alt="" width="40px" height="40px">
@@ -12,8 +12,10 @@
       <li><a [routerLink]="['/storage']" class="nav-link px-2">Storage</a></li>
     </ul>
 
-    <div class="col-md-3 text-end">
-      <a [routerLink]="['auth/login']"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-      <a [routerLink]="['auth/register']"><button type="button" class="btn btn-primary">Sign-up</button></a>
+    <div class="col-md-3 session-info">
+      <p [style.margin]="0" *ngIf="session.isSessionActive()">{{ session.getCurrentUser() }}</p>
+      <a *ngIf="!session.isSessionActive()" [routerLink]="['auth/login']"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+      <a *ngIf="!session.isSessionActive()" [routerLink]="['auth/register']"><button type="button" class="btn btn-primary">Sign-up</button></a>
+      <a *ngIf="session.isSessionActive()" [routerLink]="['auth/logout']"><button type="button" class="btn btn-primary">Logout</button></a>
     </div>
 </header>

@@ -7,6 +7,8 @@ import { DeleteComponent } from './pages/delete/delete.component';
 import { ReadComponent } from './pages/read/read.component';
 import { StorageComponent } from './pages/storage/storage.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
+import { AuthRegisterComponent } from './components/auth-register/auth-register.component';
+import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
 
 export const routes: Routes = [
     {
@@ -20,7 +22,15 @@ export const routes: Routes = [
             {
                 path: 'login',
                 component: AuthLoginComponent,
-            }
+            },
+            {
+                path: 'register',
+                component: AuthRegisterComponent,
+            },
+            {
+                path: 'logout',
+                component: AuthLogoutComponent,
+            },
         ]
     },
     {

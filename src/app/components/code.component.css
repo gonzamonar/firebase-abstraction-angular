@@ -1,0 +1,25 @@
+
+.comment {
+    color: #6a8a36;
+}
+
+.highlight {
+    color: orange;
+}
+
+.method {
+    color: #dcdcaa;
+    font-weight: bold;
+}
+
+.object {
+    color: #3ac9b0;
+}
+
+.class {
+    color: #2d7ad6;
+}
+
+.export {
+    color: #c586b6;
+}

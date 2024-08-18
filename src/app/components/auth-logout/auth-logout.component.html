@@ -1,0 +1,44 @@
+<div class="container py-4">
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-4">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3" [style.overflow]="'hidden'">
+                <h2 class="h3 mb-3 fw-normal">Cerrar Sesión</h2>
+                <p *ngIf="session.isSessionActive()">Actualmente se encuentra activa la sesión de <b>{{ session.getCurrentUser() }}</b></p>
+                <p *ngIf="!session.isSessionActive()">Actualmente no hay una sesión activa.</p>
+                <button class="btn btn-primary w-100 py-2" (click)="logout()" [disabled]="!session.isSessionActive()">Logout</button>
+            </div>
+        </div>
+        
+        <div class="col-lg-8">
+            <mat-tab-group>
+                <mat-tab label="auth-logout.component.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_authComponent"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="login.service.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_loginService"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="firebase/auth.service.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_authService"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </div>
+      </div>
+      
+</div>

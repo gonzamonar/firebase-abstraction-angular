@@ -3,6 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { MatTabsModule } from '@angular/material/tabs';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-auth-login',
@@ -13,7 +14,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule
   ],
   templateUrl: './auth-login.component.html',
-  styleUrl: './auth-login.component.css',
+  styleUrl: '../code.component.css',
   encapsulation: ViewEncapsulation.None
 })
 
@@ -24,16 +25,19 @@ export class AuthLoginComponent {
   loginError: boolean = false;
 
   constructor(
-    private login: LoginService,
+    private loginService: LoginService,
+    public session: SessionService
   ){}
 
   LoginAuth() {
     this.loginError = false;
 
-    this.login.login(this.email, this.password, this.rememberLogin)
+    this.loginService.login(this.email, this.password, this.rememberLogin)
     .then(
       (res) => {
         this.loginError = res;
+        this.email = '';
+        this.password = '';
       }
     );
   }
@@ -45,12 +49,12 @@ export class AuthLoginComponent {
   rememberLogin: boolean = false;
   loginError: boolean = false;
 
-  constructor(private login: LoginService){}
+  constructor(private loginService: LoginService){}
 
   LoginAuth() {
     this.loginError = false;
 
-    this.login.login(this.email, this.password, this.rememberLogin)
+    this.loginService.login(this.email, this.password, this.rememberLogin)
     .then((res) => {
         this.loginError = res;
     });
@@ -67,17 +71,22 @@ export class LoginService {
     let persistence = remember ? browserLocalPersistence : inMemoryPersistence ;
 
     return this.authService.login(email, password, persistence)
-    .then(
-      (response) => { return response.error; }
-    );
+    .then((response) => {
+        this.loader.setLoading(false);
+        if (!response.error){
+          this.notifier.popUpNotification("¡Bienvenido/a!");
+          this.router.navigateByUrl("auth/logout");
+        }
+        return response.error;
+    });
   }
 }
 `;
 
 code_loginServiceSpinner = `
-<span class='highlight'></span>
-<span class='highlight'></span>
-
+<a href="https://github.com/gonzamonar/firebase-abstraction-angular/blob/master/src/app/app.component.html" target="_blank">app.component.html</a>
+<a href="https://github.com/gonzamonar/firebase-abstraction-angular/tree/master/src/app/components/spinner" target="_blank">spinner.component</a>
+<a href="https://github.com/gonzamonar/firebase-abstraction-angular/blob/master/src/app/services/loader.service.ts" target="_blank">loader.service.ts</a>
 
 export class LoginService {
 
@@ -86,7 +95,7 @@ export class LoginService {
     <span class='highlight'>public loader: LoaderService,</span>
   ) { }
   
-  async login(email: string, password: string, remember: boolean = false): Promise<boolean> {
+  async <span class='method'>login</span>(email: string, password: string, remember: boolean = false): Promise<boolean> {
     let persistence = remember ? browserLocalPersistence : inMemoryPersistence ;
     <span class='highlight'>this.loader.setLoading(true);</span>
 
@@ -111,10 +120,10 @@ export class AuthService {
   
   constructor(private auth: Auth) { }
 
-  async login(email: string, password: string, persistence: Persistence = inMemoryPersistence): Promise&lt;LoginResult&gt; {
-    return setPersistence(this.auth, persistence)
+  async <span class='method'>login</span>(email: string, password: string, persistence: Persistence = inMemoryPersistence): Promise&lt;LoginResult&gt; {
+    return <span class='method'>setPersistence</span>(this.auth, persistence)
       .then(() =>
-        signInWithEmailAndPassword(this.auth, email, password)
+        <span class='method'>signInWithEmailAndPassword</span>(this.auth, email, password)
         .then(
           async (userCredential) => {
             if (userCredential == null){
