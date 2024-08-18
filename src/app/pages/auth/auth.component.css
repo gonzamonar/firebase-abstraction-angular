@@ -1,0 +1,13 @@
+
+.feature-icon {
+    border-radius: 10px;
+}
+
+fa-icon {
+    padding: 5px 10px;
+    font-size: 30px;
+}
+
+.auth-logo {
+    max-width: 100%;
+}

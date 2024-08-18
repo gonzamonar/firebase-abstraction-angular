@@ -1,0 +1,14 @@
+
+footer {
+    padding: 0px 25px;
+}
+
+fa-icon {
+    font-size: 30px;
+    transition: all 0.4s ease-in-out;
+}
+
+fa-icon:hover {
+    color: orange;
+}
+

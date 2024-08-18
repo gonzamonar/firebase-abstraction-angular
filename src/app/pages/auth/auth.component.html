@@ -1,1 +1,57 @@
-<p>auth works!</p>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img class="auth-logo" src="../../../assets/authentication.jpg" alt="" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Firebase Auth</h1>
+      <p class="lead">En este apartado tenemos el caso de uso de las funciones para registrarse, iniciar sesión y cerrar sesión facilitadas por Firebase Authentication.</p>
+      <p class="lead">La estructura del código es equivalente en los tres apartados (Login, Registro y Logout):</p>
+        <p>El <b>component.ts</b> gestiona la vista (inputs, validaciones y display de mensajes de error o éxito) e interactua con nuestro servicio.</p>
+        <p>El <a href="https://github.com/gonzamonar/firebase-abstraction-angular/blob/master/src/app/services/login.service.ts" target="_blank"><b>login.service.ts</b></a> es nuestro servicio personalizable. Si deseamos agregar redirecciones o el llamado a un servicio de spinner de carga o de display de mensajes, debemos hacerlo en este servicio.</p>
+        <p>Por último, el servicio <a href="https://github.com/gonzamonar/firebase-abstraction-angular/blob/master/src/app/services/firebase/auth.service.ts" target="_blank"><b>firebase/auth.service.ts</b></a> es la abstracción de Firebase, es independiente de nuestra lógica de negocio y, a rasgos generales, no deberíamos modificarlo.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container py-4">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <fa-icon [icon]="iconLogin"></fa-icon>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Login</h3>
+        <p>Caso de uso de las funciones <b>setPersistence</b> y <b>signInWithEmailAndPassword</b> para iniciar sesión utilizando el servicio Authentication de Firebase.</p>
+        <a [routerLink]="['login']" class="icon-link">
+          Ver ejemplo
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <fa-icon [icon]="iconRegister"></fa-icon>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Registro</h3>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        <a [routerLink]="['register']" class="icon-link">
+          Ver ejemplo
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <fa-icon [icon]="iconLogout"></fa-icon>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Logout</h3>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        <a [routerLink]="['logout']" class="icon-link">
+          Ver ejemplo
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

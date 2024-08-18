@@ -6,6 +6,7 @@ import { UpdateComponent } from './pages/update/update.component';
 import { DeleteComponent } from './pages/delete/delete.component';
 import { ReadComponent } from './pages/read/read.component';
 import { StorageComponent } from './pages/storage/storage.component';
+import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 
 export const routes: Routes = [
     {
@@ -14,7 +15,13 @@ export const routes: Routes = [
     },
     {
         path: 'auth',
-        component: AuthComponent
+        component: AuthComponent,
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+            }
+        ]
     },
     {
         path: 'create',

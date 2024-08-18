@@ -1,0 +1,63 @@
+<div class="container py-4">
+    
+    <div class="row align-items-md-stretch">
+        <div class="col-md-4">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3" [style.overflow]="'hidden'">
+                <form>
+                    <h2 class="h3 mb-3 fw-normal">Iniciar Sesión</h2>
+                    <div class="flex" [style.gap.px]="20">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="form-check text-start my-3">
+                        <input class="form-check-input" type="checkbox" id="remember" name="remember" [(ngModel)]="rememberLogin">
+                        <label class="form-check-label" for="remember">Mantenerme logueado</label>
+                    </div>
+                    <small *ngIf="loginError" class="form-text" [style.color]="'red'">Usuario o contraseña incorrectos.</small>
+                    <button class="btn btn-primary w-100 py-2" type="submit" (click)="LoginAuth()">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <mat-tab-group>
+                <mat-tab label="auth-login.component.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_authComponent"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="login.service.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_loginService"></code>
+                        </pre>
+
+                        <h3>Servicio con Spinner</h3>
+                        <pre>
+                            <code [innerHTML]="code_loginServiceSpinner"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="firebase/auth.service.ts">
+                    <div class="h-100 p-5 text-bg-dark border rounded-3">
+                        <pre>
+                            <code [innerHTML]="code_authService"></code>
+                        </pre>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </div>
+      </div>
+      
+</div>
